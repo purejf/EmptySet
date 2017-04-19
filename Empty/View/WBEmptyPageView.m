@@ -1,9 +1,9 @@
 //
 //  WBEmptyPageView.m
-//  imbangbang
+//
 //
 //  Created by Charles on 2017/3/27.
-//  Copyright © 2017年 com.58. All rights reserved.
+//  Copyright © 2017年 yx. All rights reserved.
 //
 
 #import "WBEmptyPageView.h"

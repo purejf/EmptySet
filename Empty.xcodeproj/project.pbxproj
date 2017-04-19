@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810AC2991EA77DFB002B090E /* WBEmptyPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810AC2971EA77DFB002B090E /* WBEmptyPageView.m */; };
+		810AC29A1EA77DFB002B090E /* WBEmptyPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810AC2981EA77DFB002B090E /* WBEmptyPageView.xib */; };
+		810AC29D1EA77E89002B090E /* wb_empty_no_msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 810AC29B1EA77E89002B090E /* wb_empty_no_msg@2x.png */; };
+		810AC29E1EA77E89002B090E /* wb_empty_no_msg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 810AC29C1EA77E89002B090E /* wb_empty_no_msg@3x.png */; };
 		81D31E941EA74CC900F7C78C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31E931EA74CC900F7C78C /* main.m */; };
 		81D31E971EA74CC900F7C78C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31E961EA74CC900F7C78C /* AppDelegate.m */; };
 		81D31E9A1EA74CC900F7C78C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31E991EA74CC900F7C78C /* ViewController.m */; };
@@ -15,6 +19,7 @@
 		81D31EA21EA74CC900F7C78C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D31EA01EA74CC900F7C78C /* LaunchScreen.storyboard */; };
 		81D31EAD1EA74CC900F7C78C /* EmptyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31EAC1EA74CC900F7C78C /* EmptyTests.m */; };
 		81D31EB81EA74CC900F7C78C /* EmptyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31EB71EA74CC900F7C78C /* EmptyUITests.m */; };
+		81D31EC71EA74D2000F7C78C /* UIScrollView+CYEmptySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D31EC61EA74D2000F7C78C /* UIScrollView+CYEmptySet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810AC2961EA77DFB002B090E /* WBEmptyPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmptyPageView.h; sourceTree = "<group>"; };
+		810AC2971EA77DFB002B090E /* WBEmptyPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmptyPageView.m; sourceTree = "<group>"; };
+		810AC2981EA77DFB002B090E /* WBEmptyPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBEmptyPageView.xib; sourceTree = "<group>"; };
+		810AC29B1EA77E89002B090E /* wb_empty_no_msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wb_empty_no_msg@2x.png"; sourceTree = "<group>"; };
+		810AC29C1EA77E89002B090E /* wb_empty_no_msg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wb_empty_no_msg@3x.png"; sourceTree = "<group>"; };
 		81D31E8F1EA74CC900F7C78C /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D31E931EA74CC900F7C78C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81D31E951EA74CC900F7C78C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +61,8 @@
 		81D31EB31EA74CC900F7C78C /* EmptyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmptyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D31EB71EA74CC900F7C78C /* EmptyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyUITests.m; sourceTree = "<group>"; };
 		81D31EB91EA74CC900F7C78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D31EC51EA74D2000F7C78C /* UIScrollView+CYEmptySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CYEmptySet.h"; sourceTree = "<group>"; };
+		81D31EC61EA74D2000F7C78C /* UIScrollView+CYEmptySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CYEmptySet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		810AC2951EA77DFB002B090E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				810AC2961EA77DFB002B090E /* WBEmptyPageView.h */,
+				810AC2971EA77DFB002B090E /* WBEmptyPageView.m */,
+				810AC2981EA77DFB002B090E /* WBEmptyPageView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		81D31E861EA74CC900F7C78C = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +123,15 @@
 		81D31E911EA74CC900F7C78C /* Empty */ = {
 			isa = PBXGroup;
 			children = (
+				810AC2951EA77DFB002B090E /* View */,
 				81D31E951EA74CC900F7C78C /* AppDelegate.h */,
 				81D31E961EA74CC900F7C78C /* AppDelegate.m */,
 				81D31E981EA74CC900F7C78C /* ViewController.h */,
 				81D31E991EA74CC900F7C78C /* ViewController.m */,
+				81D31EC51EA74D2000F7C78C /* UIScrollView+CYEmptySet.h */,
+				81D31EC61EA74D2000F7C78C /* UIScrollView+CYEmptySet.m */,
+				810AC29B1EA77E89002B090E /* wb_empty_no_msg@2x.png */,
+				810AC29C1EA77E89002B090E /* wb_empty_no_msg@3x.png */,
 				81D31E9B1EA74CC900F7C78C /* Main.storyboard */,
 				81D31E9E1EA74CC900F7C78C /* Assets.xcassets */,
 				81D31EA01EA74CC900F7C78C /* LaunchScreen.storyboard */,
@@ -207,7 +234,7 @@
 				TargetAttributes = {
 					81D31E8E1EA74CC900F7C78C = {
 						CreatedOnToolsVersion = 8.3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					81D31EA71EA74CC900F7C78C = {
 						CreatedOnToolsVersion = 8.3;
@@ -246,7 +273,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810AC29A1EA77DFB002B090E /* WBEmptyPageView.xib in Resources */,
+				810AC29D1EA77E89002B090E /* wb_empty_no_msg@2x.png in Resources */,
 				81D31EA21EA74CC900F7C78C /* LaunchScreen.storyboard in Resources */,
+				810AC29E1EA77E89002B090E /* wb_empty_no_msg@3x.png in Resources */,
 				81D31E9F1EA74CC900F7C78C /* Assets.xcassets in Resources */,
 				81D31E9D1EA74CC900F7C78C /* Main.storyboard in Resources */,
 			);
@@ -275,7 +305,9 @@
 			files = (
 				81D31E9A1EA74CC900F7C78C /* ViewController.m in Sources */,
 				81D31E971EA74CC900F7C78C /* AppDelegate.m in Sources */,
+				81D31EC71EA74D2000F7C78C /* UIScrollView+CYEmptySet.m in Sources */,
 				81D31E941EA74CC900F7C78C /* main.m in Sources */,
+				810AC2991EA77DFB002B090E /* WBEmptyPageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,10 +458,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Empty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = c.Empty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -437,10 +472,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Empty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = c.Empty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -509,6 +547,7 @@
 				81D31EBE1EA74CC900F7C78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81D31EBF1EA74CC900F7C78C /* Build configuration list for PBXNativeTarget "EmptyTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +556,7 @@
 				81D31EC11EA74CC900F7C78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81D31EC21EA74CC900F7C78C /* Build configuration list for PBXNativeTarget "EmptyUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +565,7 @@
 				81D31EC41EA74CC900F7C78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
