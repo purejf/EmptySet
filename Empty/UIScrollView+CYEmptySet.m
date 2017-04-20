@@ -61,43 +61,56 @@ static char CYEmptySetEmptyEnabledKey;
         
         UIView *contentView = self.contentView;
         
-        if (![self rowCount]
-            && ([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]])
-            && !contentView.superview
-            && self.subviews.count > 1) {
-            [self insertSubview:contentView atIndex:0];
-            if (self.customEmptyView) {
-                self.customEmptyView.translatesAutoresizingMaskIntoConstraints = false;
-                [contentView addSubview:self.customEmptyView];
+        if ([self rowCount] == 0) {
+            if (([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]])
+                && !contentView.superview
+                && self.subviews.count > 1) {
+                [self addSubview:contentView];
+                [self insertSubview:contentView atIndex:0];
+                if (self.customEmptyView) {
+                    self.customEmptyView.translatesAutoresizingMaskIntoConstraints = false;
+                    [contentView addSubview:self.customEmptyView];
+                }
+                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                                 attribute:NSLayoutAttributeWidth
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeWidth
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+                
+                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+                
+                [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeLeft),
+                                                          @(NSLayoutAttributeBottom),
+                                                          @(NSLayoutAttributeRight)] view:self.contentView equalToSuperView:self];
+                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeTop
+                                                                multiplier:1.0 constant:-self.contentInset.top]];
+                [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeTop),
+                                                          @(NSLayoutAttributeLeft),
+                                                          @(NSLayoutAttributeBottom),
+                                                          @(NSLayoutAttributeRight)] view:self.customEmptyView equalToSuperView:self.contentView];
+                
+                
+                
             }
-            [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                             attribute:NSLayoutAttributeWidth
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:self
-                                                             attribute:NSLayoutAttributeWidth
-                                                            multiplier:1.0
-                                                              constant:0.0]];
-            
-            [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0]];
-            
-            [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeTop),
-                                                      @(NSLayoutAttributeLeft),
-                                                      @(NSLayoutAttributeBottom),
-                                                      @(NSLayoutAttributeRight)] view:self.contentView equalToSuperView:self];
-            [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeTop),
-                                                      @(NSLayoutAttributeLeft),
-                                                      @(NSLayoutAttributeBottom),
-                                                      @(NSLayoutAttributeRight)] view:self.customEmptyView equalToSuperView:self.contentView];
-            
-            
-            
         } else {
             [contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
             [contentView removeFromSuperview];
-            contentView = nil;
+            self.contentView = nil;
         }
     });
- 
+    
 }
 
 - (void)addConstraintWithLayoutAttributes:(NSArray *)attributes view:(UIView *)view equalToSuperView:(UIView *)superView {
@@ -145,7 +158,10 @@ static char CYEmptySetEmptyEnabledKey;
 
 - (void)setEmptyEnabled:(BOOL)emptyEnabled {
     if (emptyEnabled) {
-        [self exchangeSeletor1:@selector(reloadData) selector2:@selector(cy_reloadData)];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [self exchangeSeletor1:@selector(reloadData) selector2:@selector(cy_reloadData)];
+        });
     }
     objc_setAssociatedObject(self, &CYEmptySetEmptyEnabledKey, @(emptyEnabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

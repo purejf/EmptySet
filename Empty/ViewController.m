@@ -37,7 +37,6 @@
     };
     self.tableView.customEmptyView = empty;
     
-    
     [self.titles addObjectsFromArray:@[@"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
