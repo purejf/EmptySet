@@ -42,9 +42,6 @@ typedef void(^WBEmptyPageViewBtnClickHandle)(WBEmptyPageView *emptyPageView);
 @property (nonatomic, assign) CGFloat labelH;
 
 // 按钮高度
-@property (nonatomic,  assign) CGFloat btnH;
-
-// 判断点击位置是否和按钮有重合
-- (BOOL)buttonIntersectsWithTouchPoint:(CGPoint)touchPoint;
+@property (nonatomic, assign) CGFloat btnH;
 
 @end

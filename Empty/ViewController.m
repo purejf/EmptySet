@@ -10,9 +10,7 @@
 #import "UIScrollView+CYEmptySet.h"
 #import "WBEmptyPageView.h"
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface ViewController ()
 
 @property (nonatomic, strong) NSMutableArray <NSString *> *titles;
 
@@ -23,11 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.emptyEnabled = YES;
-    
     self.tableView.tableFooterView = [UIView new];
-    
     self.titles = [NSMutableArray new];
+    
     WBEmptyPageView *empty = [[NSBundle mainBundle] loadNibNamed:@"WBEmptyPageView" owner:nil options:nil].firstObject;
     empty.title = @"暂时没有信息~";
     empty.btnTitle = @"重新加载";
@@ -35,9 +31,11 @@
     empty.handle = ^(WBEmptyPageView *emptyPageView) {
         [self add];
     };
+    
+    self.tableView.emptyEnabled = YES;
     self.tableView.customEmptyView = empty;
     
-    [self.titles addObjectsFromArray:@[@"1",@"1",@"1",@"1",
+    [self.titles addObjectsFromArray:@[@"点击移除所有数据",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1"]];
@@ -55,7 +53,7 @@
 - (void)add {
     
     [self.titles removeAllObjects];
-    [self.titles addObjectsFromArray:@[@"1",@"1",@"1",@"1",
+    [self.titles addObjectsFromArray:@[@"点击移除所有数据",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1",
                                        @"1",@"1",@"1",@"1"]];
@@ -82,6 +80,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Id];
     }
+    cell.contentView.backgroundColor = [UIColor lightGrayColor];
     cell.textLabel.text = self.titles[indexPath.row];
     return cell;
 }

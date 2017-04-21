@@ -36,7 +36,7 @@
     [super awakeFromNib];
     self.button.layer.masksToBounds = YES;
     self.button.layer.cornerRadius = 1.0;
-    self.button.layer.borderWidth = 1 / [UIScreen mainScreen].scale;
+    self.button.layer.borderWidth = 1;
     self.button.layer.borderColor = [UIColor colorWithHue:0.06 saturation:0.85 brightness:1.00 alpha:1.00].CGColor;
 }
 
@@ -105,22 +105,6 @@
     }
     self.button.hidden = NO;
     [self.button setTitle:btnTitle forState:UIControlStateNormal];
-}
-
-// 判断点击位置是否和按钮有重合
-- (BOOL)buttonIntersectsWithTouchPoint:(CGPoint)touchPoint {
-    CGRect buttonF = self.button.frame;
-    CGFloat buttonXFrom = buttonF.origin.x;
-    CGFloat buttonXEnd = buttonF.origin.x + buttonF.size.width;
-    CGFloat buttonYFrom = buttonF.origin.y;
-    CGFloat buttonYEnd = buttonF.origin.y + buttonF.size.height;
-    
-    CGFloat touchX = touchPoint.x;
-    CGFloat touchY = touchPoint.y;
-    if (touchX > buttonXFrom && touchX < buttonXEnd && touchY > buttonYFrom && touchY < buttonYEnd) {
-        return YES;
-    }
-    return NO;
 }
 
 @end

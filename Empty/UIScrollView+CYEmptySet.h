@@ -10,7 +10,7 @@
 
 @interface UIScrollView (CYEmptySet)
 
-@property (nonatomic, weak) UIView *customEmptyView;
+@property (nonatomic, strong) UIView *customEmptyView;
 
 @property (nonatomic, assign) BOOL emptyEnabled;
 

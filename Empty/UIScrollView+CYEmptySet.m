@@ -56,60 +56,56 @@ static char CYEmptySetEmptyEnabledKey;
     [self cy_reloadData];
     
     if (!self.emptyEnabled) return;
+    UIView *contentView = self.contentView;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        UIView *contentView = self.contentView;
-        
-        if ([self rowCount] == 0) {
-            if (([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]])
-                && !contentView.superview
-                && self.subviews.count > 1) {
-                [self addSubview:contentView];
-                [self insertSubview:contentView atIndex:0];
-                if (self.customEmptyView) {
-                    self.customEmptyView.translatesAutoresizingMaskIntoConstraints = false;
-                    [contentView addSubview:self.customEmptyView];
-                }
-                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                 attribute:NSLayoutAttributeWidth
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self
-                                                                 attribute:NSLayoutAttributeWidth
-                                                                multiplier:1.0
-                                                                  constant:0.0]];
-                
-                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                 attribute:NSLayoutAttributeHeight
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self
-                                                                 attribute:NSLayoutAttributeHeight
-                                                                multiplier:1.0
-                                                                  constant:0.0]];
-                
-                [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeLeft),
-                                                          @(NSLayoutAttributeBottom),
-                                                          @(NSLayoutAttributeRight)] view:self.contentView equalToSuperView:self];
-                [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
-                                                                 attribute:NSLayoutAttributeTop
-                                                                 relatedBy:NSLayoutRelationEqual
-                                                                    toItem:self
-                                                                 attribute:NSLayoutAttributeTop
-                                                                multiplier:1.0 constant:-self.contentInset.top]];
-                [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeTop),
-                                                          @(NSLayoutAttributeLeft),
-                                                          @(NSLayoutAttributeBottom),
-                                                          @(NSLayoutAttributeRight)] view:self.customEmptyView equalToSuperView:self.contentView];
-                
-                
-                
+    if ([self rowCount] == 0) {
+        if (([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]])
+            && !contentView.superview
+            && self.subviews.count > 1) {
+            [self addSubview:contentView];
+            [self insertSubview:contentView atIndex:0];
+            if (self.customEmptyView) {
+                self.customEmptyView.translatesAutoresizingMaskIntoConstraints = false;
+                [contentView addSubview:self.customEmptyView];
             }
-        } else {
-            [contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [contentView removeFromSuperview];
-            self.contentView = nil;
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                             attribute:NSLayoutAttributeWidth
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeWidth
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                             attribute:NSLayoutAttributeHeight
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeHeight
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            
+            [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeLeft),
+                                                      @(NSLayoutAttributeBottom),
+                                                      @(NSLayoutAttributeRight)] view:self.contentView equalToSuperView:self];
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:self.contentView
+                                                             attribute:NSLayoutAttributeTop
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeTop
+                                                            multiplier:1.0 constant:-self.contentInset.top]];
+            [self addConstraintWithLayoutAttributes:@[@(NSLayoutAttributeTop),
+                                                      @(NSLayoutAttributeLeft),
+                                                      @(NSLayoutAttributeBottom),
+                                                      @(NSLayoutAttributeRight)] view:self.customEmptyView equalToSuperView:self.contentView];
+            
+            
+            
         }
-    });
+    } else {
+        [contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [contentView removeFromSuperview];
+        self.contentView = nil;
+    }
     
 }
 
