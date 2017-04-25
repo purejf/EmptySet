@@ -32,6 +32,7 @@
         [self add];
     };
     
+    self.tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0);
     self.tableView.emptyEnabled = YES;
     self.tableView.customEmptyView = empty;
     

@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) BOOL emptyEnabled;
 
+@property (nonatomic, assign) BOOL coverContentInset;
+
 @end
