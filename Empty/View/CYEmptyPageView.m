@@ -1,14 +1,14 @@
 //
-//  WBEmptyPageView.m
+//  CYEmptyPageView.m
 //
 //
 //  Created by Charles on 2017/3/27.
 //  Copyright © 2017年 yx. All rights reserved.
 //
 
-#import "WBEmptyPageView.h"
+#import "CYEmptyPageView.h"
 
-@interface WBEmptyPageView ()
+@interface CYEmptyPageView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation WBEmptyPageView
+@implementation CYEmptyPageView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

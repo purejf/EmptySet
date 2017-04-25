@@ -1,5 +1,5 @@
 //
-//  WBEmptyPageView.h
+//  CYEmptyPageView.h
 //
 //
 //  Created by Charles on 2017/3/27.
@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class WBEmptyPageView;
+@class CYEmptyPageView;
 
-typedef void(^WBEmptyPageViewBtnClickHandle)(WBEmptyPageView *emptyPageView);
+typedef void(^CYEmptyPageViewBtnClickHandle)(CYEmptyPageView *emptyPageView);
 
-@interface WBEmptyPageView : UIView
+@interface CYEmptyPageView : UIView
 
 // 点击按钮回调
-@property (nonatomic, copy) WBEmptyPageViewBtnClickHandle handle;
+@property (nonatomic, copy) CYEmptyPageViewBtnClickHandle handle;
 
 // 图片
 @property (nonatomic, copy) NSString *imagename;

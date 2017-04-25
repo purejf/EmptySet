@@ -41,6 +41,14 @@ void exchangeSelector(SEL sel1, SEL sel2, Class cls) {
 
 @implementation UIScrollView (CYEmptySet)
 
+- (void)setEmptyAllowScroll:(BOOL)allow {
+    objc_setAssociatedObject(self, @selector(emptyAllowScroll), @(allow), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)emptyAllowScroll {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 - (void)setCoverContentInset:(BOOL)cover {
     objc_setAssociatedObject(self, @selector(coverContentInset), @(cover), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -78,7 +86,8 @@ void exchangeSelector(SEL sel1, SEL sel2, Class cls) {
             exchangeSelector(@selector(reloadData), @selector(cy_reloadData), [self class]);
             exchangeSelector(@selector(layoutSubviews), @selector(cy_layoutSubviews), [self class]);
         });
-        self.coverContentInset = true;
+        self.coverContentInset = YES;
+        self.emptyAllowScroll = YES;
     }
     objc_setAssociatedObject(self, @selector(emptyEnabled), @(enabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -122,7 +131,7 @@ void exchangeSelector(SEL sel1, SEL sel2, Class cls) {
                     [self.contentView addSubview:self.customEmptyView];
                 }
             }
-            
+            self.scrollEnabled = self.emptyAllowScroll;
             self.contentView.backgroundColor = self.customEmptyView.backgroundColor;
             if (self.contentView.superview) {
                 [self setNeedsLayout];

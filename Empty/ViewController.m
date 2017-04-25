@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "UIScrollView+CYEmptySet.h"
-#import "WBEmptyPageView.h"
+#import "CYEmptyPageView.h"
 
 @interface ViewController ()
 
@@ -24,47 +24,33 @@
     self.tableView.tableFooterView = [UIView new];
     self.titles = [NSMutableArray new];
     
-    WBEmptyPageView *empty = [[NSBundle mainBundle] loadNibNamed:@"WBEmptyPageView" owner:nil options:nil].firstObject;
+    CYEmptyPageView *empty = [[NSBundle mainBundle] loadNibNamed:@"CYEmptyPageView" owner:nil options:nil].firstObject;
     empty.title = @"暂时没有信息~";
     empty.btnTitle = @"重新加载";
-    empty.imagename = @"wb_empty_no_msg";
-    empty.handle = ^(WBEmptyPageView *emptyPageView) {
+    empty.imagename = @"cy_empty_no_msg";
+    empty.handle = ^(CYEmptyPageView *emptyPageView) {
         [self add];
     };
-    
     self.tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0);
     self.tableView.emptyEnabled = YES;
     self.tableView.customEmptyView = empty;
     
-    [self.titles addObjectsFromArray:@[@"点击移除所有数据",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1"]];
-    
-    [self.tableView reloadData];
+    [self add];
 }
 
 - (void)remove {
-    
     [self.titles removeAllObjects];
-    
     [self.tableView reloadData];
 }
 
 - (void)add {
-    
     [self.titles removeAllObjects];
-    [self.titles addObjectsFromArray:@[@"点击移除所有数据",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1",
-                                       @"1",@"1",@"1",@"1"]];
+    [self.titles addObjectsFromArray:@[@"点击移除所有数据",@"这是一列数据", @"这是一列数据", @"这是一列数据",
+                                       @"这是一列数据", @"这是一列数据", @"这是一列数据", @"这是一列数据",
+                                       @"这是一列数据", @"这是一列数据", @"这是一列数据", @"这是一列数据",
+                                       @"这是一列数据", @"这是一列数据", @"这是一列数据", @"这是一列数据"]];
     
     [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
